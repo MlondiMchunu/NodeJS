@@ -1,26 +1,8 @@
-const {readFile,writeFile,appendFile} = require('fs')
+const http = require('http')
 
-readFile('./content/first.txt','utf8',(err,result)=>{
-    if(err){
-        console.log(err)
-        return
-    }
-    const first = result
-    readFile('./content/second.txt','utf8',(err,result)=>{
-        if(err){
-            console.log(err)
-            return
-        }
-        const second = result
-        appendFile('./content/file-sync.txt',' Appended Data',(err,result)=>{
-            if(err){
-                console.log(err)
-                return
-            }
-            console.log(result)
-        })
-        
-    })
-}
-
-)
+const server = http.createServer((req,res)=>{
+   res.write('Welcome Mlondi') 
+   res.end()
+   console.log(req)
+})
+server.listen(5000)
