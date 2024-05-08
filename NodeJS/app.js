@@ -1,12 +1,5 @@
-const name1 = require('./names')
-const sayHi = require('./5-utils')
-const data = require('./alternative')
-const mindG = require('./mindGrenade')
+const os = require('os')
 
-//console.log(name)
-
-sayHi(name1.name)
-sayHi(name1.surname)
-sayHi('Maxingwane')
-
-console.log(data.items)
+//info about current user
+const user = os.userInfo()
+console.log(user)
