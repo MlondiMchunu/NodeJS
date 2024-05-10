@@ -55,7 +55,7 @@ setTimeout(()=>{
 console.log('third')
 */
 
-const http = require('http')
+/*const http = require('http')
 
 const server = http.createServer((req,res)=>{
     console.log('request event')
@@ -64,4 +64,28 @@ const server = http.createServer((req,res)=>{
 
 server.listen(5000,()=>{
     console.log('Server listening on port : 5000..')
-})
+})*/
+
+const {readFile} = require('fs')
+
+
+//this works better when reading 2 files
+const getText=(path)=>{
+    return new Promise((resolve,reject)=>{
+        readFile(path,'utf8',(err,data)=>{
+            if(err){
+                reject(err)
+            }else{
+                resolve(data)
+            }
+        })
+        
+    })
+}
+
+getText('./content/second.txt')
+       .then((result)=>console.log(result))
+       .catch((err)=>console.log(err))
+
+
+
