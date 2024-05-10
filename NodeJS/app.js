@@ -45,8 +45,23 @@ readFile('./content/first.txt','utf8',(err,result)=>{
 
 console.log('starting next task')
 */
-console.log('first')
+
+
+
+/*console.log('first')
 setTimeout(()=>{
     console.log('second')
 },4000)
 console.log('third')
+*/
+
+const http = require('http')
+
+const server = http.createServer((req,res)=>{
+    console.log('request event')
+    res.end('Hello World')
+})
+
+server.listen(5000,()=>{
+    console.log('Server listening on port : 5000..')
+})
