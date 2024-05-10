@@ -66,23 +66,23 @@ server.listen(5000,()=>{
     console.log('Server listening on port : 5000..')
 })*/
 
-const {readFile} = require('fs')
+const { readFile } = require('fs')
 
 
 //this works better when reading 2 files
 console.log('first')
 
-const getText=(path)=>{
-    return new Promise((resolve,reject)=>{
-        readFile(path,'utf8',(err,data)=>{
-            if(err){
+const getText = (path) => {
+    return new Promise((resolve, reject) => {
+        readFile(path, 'utf8', (err, data) => {
+            if (err) {
                 reject(err)
-            }else{
+            } else {
                 resolve(data)
-                console.log('second + ', data)
+                //console.log('second + ', data)
             }
         })
-        
+
     })
 }
 
@@ -91,13 +91,14 @@ const getText=(path)=>{
 //       .catch((err)=>console.log(err))
 //       console.log('third')
 
-const start = async()=>{
-    try{
-    const first = await getText('./content/second.txt');
-console.log(first)
-} catch(error){
-  console.log(first)
-}
+const start = async () => {
+    try {
+        const first = await getText('./content/second.txt');
+        const second = await getText('./content/first.txt');
+        console.log(first,second)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 start()
