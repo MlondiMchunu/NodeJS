@@ -70,6 +70,8 @@ const {readFile} = require('fs')
 
 
 //this works better when reading 2 files
+console.log('first')
+
 const getText=(path)=>{
     return new Promise((resolve,reject)=>{
         readFile(path,'utf8',(err,data)=>{
@@ -77,15 +79,28 @@ const getText=(path)=>{
                 reject(err)
             }else{
                 resolve(data)
+                console.log('second + ', data)
             }
         })
         
     })
 }
 
-getText('./content/second.txt')
-       .then((result)=>console.log(result))
-       .catch((err)=>console.log(err))
+//getText('./content/second.txt')
+//       .then((result)=>console.log(result))
+//       .catch((err)=>console.log(err))
+//       console.log('third')
+
+const start = async()=>{
+    try{
+    const first = await getText('./content/second.txt');
+console.log(first)
+} catch(error){
+  console.log(first)
+}
+}
+
+start()
 
 
 
