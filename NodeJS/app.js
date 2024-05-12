@@ -120,7 +120,10 @@ const EventEmitter = require('events');
 const customEmitter = new EventEmitter()
 
 customEmitter.on('response',()=>{
-    console.log('data received')
+    console.log('data1 received')
+})
+customEmitter.on('response',()=>{
+    console.log('data2 received')
 })
 
 customEmitter.emit('response')
