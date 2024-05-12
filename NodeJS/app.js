@@ -66,13 +66,17 @@ server.listen(5000,()=>{
     console.log('Server listening on port : 5000..')
 })*/
 
-const { readFile } = require('fs')
+/*const { readFile, writeFile } = require('fs')
+
+const util = require('util');
+const readFilePromise = util.promisify(readFile)
+const writeFilePromise = util.promisify(writeFile)
 
 
 //this works better when reading 2 files
-console.log('first')
 
-const getText = (path) => {
+//remove promise if you want to include writeFile
+/*const getText = (path) => {
     return new Promise((resolve, reject) => {
         readFile(path, 'utf8', (err, data) => {
             if (err) {
@@ -85,16 +89,22 @@ const getText = (path) => {
 
     })
 }
+*/
 
 //getText('./content/second.txt')
 //       .then((result)=>console.log(result))
 //       .catch((err)=>console.log(err))
 //       console.log('third')
-
+/*
 const start = async () => {
     try {
-        const first = await getText('./content/second.txt');
-        const second = await getText('./content/first.txt');
+        //const first = await getText('./content/second.txt');
+        const first = await readFilePromise('./content/first.txt','utf8')
+        //const second = await getText('./content/first.txt');
+        const second = await readFilePromise('./content/second.txt','utf8')
+        //console.log(first,second)
+
+        await writeFilePromise('./content/file-sync.txt','Node is Good!')
         console.log(first,second)
     } catch (error) {
         console.log(error)
@@ -103,5 +113,15 @@ const start = async () => {
 
 start()
 
+*/
 
+const EventEmitter = require('events');
+
+const customEmitter = new EventEmitter()
+
+customEmitter.on('response',()=>{
+    console.log('data received')
+})
+
+customEmitter.emit('response')
 
