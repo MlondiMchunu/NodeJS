@@ -4,11 +4,11 @@ function tag(literal, ...values) {
 
     let result;
     switch (literal[1]) {
-        case "plus":
+        case " plus ":
             result = values[0] + values[1];
             break;
-        case "minus":
-            result = values[0] + values[1];
+        case " minus ":
+            result = values[0] - values[1];
             break;
     }
     return `${values[0]}${literal[1]}${values[1]} is ${result}`;
@@ -16,6 +16,6 @@ function tag(literal, ...values) {
 
 let a = 1;
 let b = 2;
-let output = tag`What is ${a} plus ${b}`;
+let output = tag`What is ${a} minus ${b}?`;
 
 console.log(output);
