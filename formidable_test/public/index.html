@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product Upload</title>
+    </head>
+
+    <body>
+        <h1>Upload Product</h1>
+
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file">
+            <button type="submit">Upload</button>
+        </form>
+
+        <script>
+            document.getElementById('uploadForm').addEventListener('submit',async function(event){
+                event.preventDefault();
+                const formData = new FormData(this);
+
+                try{
+                    const response = await fetch('/upload',{
+                        method: 'POST',
+                        body:formData
+                    });
+                    const result = await response.json();
+                    alert(result.message);
+                }catch(error){
+                    console.error('Error',error);
+                    alert('Error uploading file');
+                }
+            });
+        </script>
+    </body>
+</html>
