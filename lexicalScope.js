@@ -10,5 +10,5 @@ const scopeOf = {
         return this.scope;
     },
 };
-console.log(scopeOf.traditional());
-console.log(scopeOf.arrow())
+console.log(scopeOf.traditional());//outputs defining scope
+console.log(scopeOf.arrow())//outputs lexical scope
