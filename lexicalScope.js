@@ -8,5 +8,7 @@ const scopeOf = {
     },
     arrow: () => {
         return this.scope;
-    }
-}
+    },
+};
+console.log(scopeOf.traditional());
+console.log(scopeOf.arrow())
