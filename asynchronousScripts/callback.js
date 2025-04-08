@@ -16,3 +16,6 @@ fs.readFile("file.txt", (err, data) => {
     console.log(`File content\n------------- \n${data}`);
 })
 console.log("after callback")
+
+//traditional callback functions result in a callback hell
+//SOLUTION to this is Promises and async/await
