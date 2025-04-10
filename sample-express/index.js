@@ -1,4 +1,6 @@
-const express = require("express");
+import express from "express";
+import { routeHello, routeAPINames } from "./routes";
+
 const app = express();
 const port = 3000;
 
