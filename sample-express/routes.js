@@ -8,12 +8,15 @@ const routeAPINames = async () => {
     try {
         const response = await fetch(url);
         data = await response.json();
+        //console.log(data);
     } catch (err) {
         return err;
     }
-    const names = data
+    const orgs = data.organizations;
+    const names = orgs
         .map((item) => `name: ${item.name}, city: ${item.city}`)
         .join("<br>");
+
 
     return names;
 };
