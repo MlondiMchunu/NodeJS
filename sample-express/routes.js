@@ -11,5 +11,11 @@ const routeAPINames = async () => {
     } catch (err) {
         return err;
     }
-    const names = data.map((item)=>`name: ${item.name}, city: ${item.city}`);
-}
+    const names = data
+        .map((item) => `name: ${item.name}, city: ${item.city}`)
+        .join("<br>");
+
+    return names;
+};
+
+export { routeHello, routeAPINames }
