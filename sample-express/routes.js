@@ -8,7 +8,8 @@ const routeAPINames = async () => {
     try {
         const response = await fetch(url);
         data = await response.json();
-    }catch(err){
+    } catch (err) {
         return err;
     }
+    const names = data.map((item)=>`name: ${item.name}, city: ${item.city}`);
 }
