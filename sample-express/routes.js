@@ -1,9 +1,11 @@
 import fetch from "node-fetch";
 
+//route for /hello endpoint
 const routeHello = () => "Hello World";
 
 
 /*use promise based fetch to get data from external API */
+/**route for /api/names endpoint */
 const routeAPINames = async () => {
     const url = "https://projects.propublica.org/nonprofits/api/v2/search.json?order=revenue&sort_order=desc";
     let data;

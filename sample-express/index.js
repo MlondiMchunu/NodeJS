@@ -4,8 +4,8 @@ import { routeHello, routeAPINames } from "./routes.js";
 const app = express();
 const port = 3000;
 
-app.get('/hello', function (req, res) {
-    const response = routeHello(req, res);
+app.get('/hello', async function (req, res) {
+    const response = await routeHello(req, res);
     res.send(response);
 });
 
