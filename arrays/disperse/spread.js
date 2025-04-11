@@ -18,6 +18,6 @@ let cloned = [...original];
 
 cloned[0] = "one";
 cloned[1] = "two";
-cloned[2] = "three";
+//cloned[2] = "three";
 
 console.log(`original: ${original}, cloned: ${cloned}`);
