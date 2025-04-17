@@ -1,4 +1,4 @@
-type responseItemType  ={
+type responseItemType = {
     id: string;
     name: string;
 };
