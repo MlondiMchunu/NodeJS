@@ -1,6 +1,6 @@
 type responseItemType = {
-    id: string;
     name: string;
+    city: string;
 };
 
 type WeatherDetailType = {
@@ -9,6 +9,6 @@ type WeatherDetailType = {
     temp?: number;
 };
 
-interface WeatherQueryINterface {
+interface WeatherQueryInterface {
     zipcode: string
 }
