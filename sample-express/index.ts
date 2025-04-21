@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { routeHello, routeAPINames } from "./routes.js";
 
 const app = express();
