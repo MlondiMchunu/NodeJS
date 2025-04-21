@@ -7,7 +7,7 @@ const routeHello = (): string => "Hello World";
 /*use promise based fetch to get data from external API */
 /**route for /api/names endpoint */
 const routeAPINames = async (): Promise<string> => {
-    const url = "https://projects.propublica.org/nonprofits/api/v2/search.json?order=revenue&sort_order=desc";
+    const url = "https://www.usemodernfullstack.dev/api/v1/users";
     let data: responseItemType[];
     try {
         const response = await fetch(url);
@@ -16,15 +16,14 @@ const routeAPINames = async (): Promise<string> => {
     } catch (err) {
         return "Error";
     }
-    const orgs = data.organizations;
-    const names = orgs
-        .map((item) => `name: ${item.name}, city: ${item.city}`)
+    const names = data
+        .map((item) => `id: ${item.id}, name: ${item.name}`)
         .join("<br>");
 
 
     return names;
 };
 
-const routeWeather = (query: WeatherQueryInterface):WeatherDetailType 
+const routeWeather = (query: WeatherQueryInterface): WeatherDetailType 
 
 export { routeHello, routeAPINames }

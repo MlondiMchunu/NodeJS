@@ -1,6 +1,6 @@
 type responseItemType = {
     name: string;
-    city: string;
+    id: string;
 };
 
 type WeatherDetailType = {
