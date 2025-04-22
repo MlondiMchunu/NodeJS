@@ -16,6 +16,11 @@ app.get("/api/names", async function (_req: Request, res: Response): Promise<voi
     } catch (err) {
         console.log(err)
     }
+    // res.send(response);
+})
+
+app.get("/api/weather/:zipcode", function (req: Request, res: Response): void {
+    const response = routeWeather({ zipcode: req.params.zipcode });
     res.send(response);
 })
 
