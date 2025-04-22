@@ -34,4 +34,4 @@ const queryWeatherData = (query: WeatherQueryInterface): WeatherDetailType => {
     };
 };
 
-export { routeHello, routeAPINames }
+export { routeHello, routeAPINames, routeWeather }
