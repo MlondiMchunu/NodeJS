@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import { routeHello, routeAPINames, routeWeather } from "./routes.js";
 
+import path from "path";
+
 const app = express();
 const port = 3000;
 
