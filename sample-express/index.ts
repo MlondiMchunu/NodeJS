@@ -26,11 +26,11 @@ app.get("/api/weather/:zipcode", function (req: Request, res: Response): void {
     res.send(response);
 })
 
-app.get("/components/weather",function(_req:Request,res:Response):void{
-    const filePath = path.join(process.cwd(),"public","weather.html");
-    res.setHeader("Content-Type","text/html");
-    res.sendFile(filePath);	
-	});
+app.get("/components/weather", async function (_req: Request, res: Response): Promise<void> {
+    const filePath = await path.join(process.cwd(), "public", "weather.html");
+    res.setHeader("Content-Type", "text/html");
+    res.sendFile(filePath);
+});
 
 app.listen(port, function () {
     console.log(`Server running on port ${port}`)
