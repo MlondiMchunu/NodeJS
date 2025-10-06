@@ -11,7 +11,7 @@ import express from "express";
 import { routeHello, routeAPINames, routeWeather } from "./routes.js";
 import path from "path";
 const app = express();
-const port = 3000;
+const port = 3001;
 app.get('/hello', function (_req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield routeHello();
@@ -27,7 +27,7 @@ app.get("/api/names", function (_req, res) {
         catch (err) {
             console.log(err);
         }
-        // res.send(response);
+        res.send(response);
     });
 });
 app.get("/api/weather/:zipcode", function (req, res) {
@@ -35,9 +35,11 @@ app.get("/api/weather/:zipcode", function (req, res) {
     res.send(response);
 });
 app.get("/components/weather", function (_req, res) {
-    const filePath = path.join(process.cwd(), "public", "weather.html");
-    res.setHeader("Content-Type", "text/html");
-    res.sendFile(filePath);
+    return __awaiter(this, void 0, void 0, function* () {
+        const filePath = yield path.join(process.cwd(), "public", "weather.html");
+        res.setHeader("Content-Type", "text/html");
+        res.sendFile(filePath);
+    });
 });
 app.listen(port, function () {
     console.log(`Server running on port ${port}`);
