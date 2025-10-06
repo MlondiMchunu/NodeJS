@@ -12,22 +12,24 @@ import fetch from "node-fetch";
 const routeHello = () => "Hello World";
 /*use promise based fetch to get data from external API */
 /**route for /api/names endpoint */
-const routeAPINames = () => __awaiter(void 0, void 0, void 0, function* () {
-    const url = "https://www.usemodernfullstack.dev/api/v1/users";
-    let data;
-    try {
-        const response = yield fetch(url);
-        data = (yield response.json());
-        //console.log(data);
-    }
-    catch (err) {
-        return "Error";
-    }
-    const names = data
-        .map((item) => `id: ${item.id}, name: ${item.name}`)
-        .join("<br>");
-    return names;
-});
+const routeAPINames = function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        const url = "https://www.usemodernfullstack.dev/api/v1/users";
+        let data;
+        try {
+            const response = yield fetch(url);
+            data = (yield response.json());
+            console.log(data);
+        }
+        catch (err) {
+            return "Error";
+        }
+        const names = data
+            .map((item) => `id: ${item.id}, name: ${item.name}`)
+            .join("<br>");
+        return names;
+    });
+};
 const routeWeather = (query) => queryWeatherData(query);
 const queryWeatherData = (query) => {
     return {

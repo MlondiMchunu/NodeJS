@@ -4,7 +4,7 @@ import { routeHello, routeAPINames, routeWeather } from "./routes.js";
 import path from "path";
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.get('/hello', async function (_req: Request, res: Response): Promise<void> {
     const response = await routeHello();
@@ -15,10 +15,10 @@ app.get("/api/names", async function (_req: Request, res: Response): Promise<voi
     let response;
     try {
         response = await routeAPINames();
-    } catch (err) {
+    } catch (err) { 
         console.log(err)
     }
-    // res.send(response);
+    res.send(response);
 })
 
 app.get("/api/weather/:zipcode", function (req: Request, res: Response): void {

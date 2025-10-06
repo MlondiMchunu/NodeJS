@@ -6,13 +6,13 @@ const routeHello = (): string => "Hello World";
 
 /*use promise based fetch to get data from external API */
 /**route for /api/names endpoint */
-const routeAPINames = async (): Promise<string> => {
+const routeAPINames = async function (): Promise<string> {
     const url = "https://www.usemodernfullstack.dev/api/v1/users";
     let data: responseItemType[];
     try {
         const response = await fetch(url);
         data = (await response.json()) as responseItemType[];
-        //console.log(data);
+        console.log(data);
     } catch (err) {
         return "Error";
     }
