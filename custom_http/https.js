@@ -1,4 +1,7 @@
+const request = require('./request')
+const response = require('./response')
+
 function request(url, data) {
-  send(url, data);
-  return read();
+  request.send(url, data);
+  return response.read();
 }
