@@ -6,4 +6,6 @@ function request(url, data) {
   return response.read();
 }
 
-request('https://wwww.google.com','hello world')
+const responseData = request('https://wwww.google.com','hello world')
+
+console.log(responseData);
