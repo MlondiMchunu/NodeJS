@@ -1,9 +1,9 @@
 const {send} = require('./request')
-const response = require('./response')
+const read = require('./response')
 
 function request(url, data) {
   send(url, data);
-  return response.read();
+  return read();
 }
 
 const responseData = request('https://wwww.google.com','hello world')
