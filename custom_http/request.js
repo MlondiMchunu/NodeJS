@@ -10,6 +10,6 @@ console.log(`sending ${encryptedData} to ${url}`)
 }
 
 module.exports= {
-    
+    REQUEST_TIMEOUT,
     send
 }
