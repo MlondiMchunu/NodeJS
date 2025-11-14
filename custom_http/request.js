@@ -8,6 +8,9 @@ axios.get('https://dummyjson.com/carts')
     .catch(error=>{
         console.error('Error fetching data:', error);
     })
+    .finally(()=>{
+        console.log('Request completed.');
+    })
 function encrypt(data){
     return 'encrypted data'
 }
