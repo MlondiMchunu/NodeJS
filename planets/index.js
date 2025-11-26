@@ -1,21 +1,15 @@
-const parse = require('csv-parse')
-const assert = require('assert')
+const { parse } = require("csv-parse");
+const assert = require("assert");
 
-const output = []
+const fs = require("fs");
 
-//create the parser
-const parser = parse({
-    delimiter:':'
-})
-//use the readable stream api
-parser.on('readable',function(){
-    let record
-    while(record = parser.read()){
-        output.push(record)
-    }
-})
-//catch any error
+const results = [];
 
-parser.on('error',function(err){
-    console.error(err.message)
-})
+fs.createReadStream("kepler_data.csv")
+  .on("data", (data) => {
+    results.push(data);
+  })
+  .on("end", () => {
+    console.log(results);
+    console.log("done");
+  });
