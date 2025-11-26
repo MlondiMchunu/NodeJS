@@ -7,3 +7,10 @@ const output = []
 const parser = parse({
     delimiter:':'
 })
+//use the readable stream api
+parser.on('readable',function(){
+    let record
+    while(record = parser.read()){
+        output.push(record)
+    }
+})
