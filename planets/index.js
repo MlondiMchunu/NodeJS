@@ -14,3 +14,8 @@ parser.on('readable',function(){
         output.push(record)
     }
 })
+//catch any error
+
+parser.on('error',function(err){
+    console.error(err.message)
+})
