@@ -5,13 +5,21 @@ const fs = require("fs");
 
 const results = [];
 
+const isHabitablePlanet = (planet) => {
+  return planet["koi_disposition"] === "CONFIRMED";
+};
+
 fs.createReadStream("kepler_data.csv")
-  .pipe(parse({
-    comment:'#',
-    columns:true,
-  }))
+  .pipe(
+    parse({
+      comment: "#",
+      columns: true,
+    })
+  )
   .on("data", (data) => {
-    results.push(data);
+    if (isHabitablePlanet(data)) {
+      results.push(data);
+    }
   })
   .on("error", (err) => {
     console.log("failed to read file : ", err);
