@@ -16,14 +16,14 @@ websocket.on("request", request => {
     const connection = request.accept(null, request.origin)
     connection.on("message", message => {
         //someone just sent a message, tell everybody
-        connections.forEach(c => c.send(`User${connection.socket.remotePort} says`))
+        connections.forEach(c => c.send(`User${connection.socket.remotePort} says: ${message.utf8Data}`))
     })
 
     connections.push(connection)
     //someone just connected, tell everybody
-    connections.forEach(c => c.send(`User${connection.socket}`))
+    connections.forEach(c => c.send(`User${connection.socket} just connected.`))
 })
 
 connections.push(connection)
 //someone just connected, tell everyone
-connections.forEach(c => c.send(`User${connection.socket.remotePort} just connected`))
+connections.forEach(c => c.send(`User${connection.socket.remotePort} just connected.`))
