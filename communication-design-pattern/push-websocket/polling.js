@@ -14,3 +14,10 @@ app.get("/checkstatus",(req, res) => {
 })
 
 app.listen(8080, () => console.log("listening on 8080"));
+
+function updateJob(jobId, prg) {
+    jobs[jobId] = prg;
+    console.log(`updated ${jobId} to ${prg}`)
+    if (prg === 100) return;
+    this.setTimeout(()=> updateJob(jobId, prg + 10), 3000)
+}
