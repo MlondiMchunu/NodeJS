@@ -4,7 +4,7 @@ const amqp = require("amqplib");
 const { Buffer } = require("buffer");
 const process = require("process");
 
-const msg = {number: process.argv[2]}
+const msg = {number1: process.argv[2], number2: process.argv[3]}
 connect();
 async function connect(){
     try{
@@ -14,11 +14,11 @@ async function connect(){
         const channel = await connection.createChannel();
         await channel.assertQueue("jobs");
         await channel.sendToQueue("jobs", Buffer.from(JSON.stringify(msg)))
-        console.log(`Job sent succesfully ${msg.number}`);
+        console.log(`Job sent succesfully ${msg.number1} ${msg.number2}`);
         await channel.close();
         await connection.close();
     }
     catch(ex){
-
+        console.error("Error sending job : ", ex);
     }
 }
